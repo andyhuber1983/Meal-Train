@@ -1,0 +1,410 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="2575.7">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; -webkit-text-stroke: #000000}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; -webkit-text-stroke: #000000; min-height: 14.0px}
+    span.s1 {font-kerning: none}
+  </style>
+</head>
+<body>
+<p class="p1"><span class="s1">&lt;!DOCTYPE html&gt;</span></p>
+<p class="p1"><span class="s1">&lt;html lang="en"&gt;</span></p>
+<p class="p1"><span class="s1">&lt;head&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;meta charset="UTF-8"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;title&gt;Family Meal Schedule • Help Needed ❤️&lt;/title&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;script src="https://www.gstatic.com/firebasejs/12.10.0/firebase-app-compat.js"&gt;&lt;/script&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;script src="https://www.gstatic.com/firebasejs/12.10.0/firebase-firestore-compat.js"&gt;&lt;/script&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;style&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>:root {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>--zinc-950: #09090b;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>--zinc-900: #18181b;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>--zinc-800: #27272a;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>--zinc-700: #3f3f46;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>--zinc-500: #71717a;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>--zinc-400: #a1a1aa;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>--zinc-300: #d4d4d8;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>--emerald-400: #34d399;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>--emerald-500: #10b981;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>--emerald-600: #059669;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>--emerald-700: #047857;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>--emerald-900: #064e3b;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>* { box-sizing: border-box; }</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>body {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>background-color: var(--zinc-950);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>color: white;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>min-height: 100vh;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>padding: 48px 24px;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>margin: 0;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>line-height: 1.5;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>.container { max-width: 768px; margin: 0 auto; }</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>.card {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>background-color: var(--zinc-900);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>border-radius: 24px;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.4);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>padding: 32px;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>margin-bottom: 40px;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>h1 {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>font-size: 2.25rem;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>font-weight: 700;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>text-align: center;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>color: var(--emerald-400);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>margin: 0 0 8px 0;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>.subtitle { color: var(--zinc-400); text-align: center; font-size: 1.125rem; margin-bottom: 4px; }</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>.date-note { color: var(--zinc-500); text-align: center; font-size: 0.75rem; margin: 0; }</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>h2 { font-size: 1.5rem; font-weight: 600; margin-bottom: 24px; display: flex; align-items: center; gap: 12px; }</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>table { width: 100%; border-collapse: collapse; }</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>th { text-align: left; padding: 16px 24px; font-weight: 500; color: var(--zinc-400); border-bottom: 1px solid var(--zinc-700); }</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>td { padding: 20px 24px; border-bottom: 1px solid var(--zinc-700); }</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>tr.available:hover { background-color: #1f2937; }</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>tr.taken { background-color: #27272a; }</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>.available-badge { color: var(--emerald-400); font-weight: 600; }</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>.meal-text { font-style: italic; color: var(--zinc-300); }</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>.empty-meal { color: var(--zinc-500); }</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>label { display: block; font-size: 0.875rem; font-weight: 500; margin-bottom: 8px; }</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>input, select {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>width: 100%;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>background-color: var(--zinc-800);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>border: 2px solid var(--zinc-700);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>border-radius: 16px;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>padding: 16px 20px;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>font-size: 1.0625rem;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>color: white;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>input:focus, select:focus { outline: none; border-color: var(--emerald-500); }</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>.grid-2 { display: grid; gap: 24px; grid-template-columns: 1fr; }</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>@media (min-width: 768px) { .grid-2 { grid-template-columns: 1fr 1fr; } }</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>button {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>width: 100%;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>background-color: var(--emerald-600);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>color: white;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>font-size: 1.25rem;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>font-weight: 600;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>padding: 20px;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>border-radius: 24px;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>border: none;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>cursor: pointer;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>transition: background-color 0.2s;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>button:hover { background-color: var(--emerald-700); }</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>.success-card {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>background-color: #052e16;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>border: 2px solid var(--emerald-500);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>border-radius: 16px;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>padding: 32px;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>text-align: center;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>margin-top: 32px;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>.live-badge {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>font-size: 0.75rem;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>background-color: var(--emerald-900);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>color: var(--emerald-400);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>padding: 4px 12px;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>border-radius: 9999px;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>margin-left: auto;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>.footer {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>text-align: center;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>color: var(--zinc-500);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>font-size: 0.75rem;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>margin-top: 32px;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>.footer button {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>background: none;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>border: none;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>color: var(--zinc-500);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>text-decoration: underline;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>padding: 0;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>font-size: inherit;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>cursor: pointer;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;/style&gt;</span></p>
+<p class="p1"><span class="s1">&lt;/head&gt;</span></p>
+<p class="p1"><span class="s1">&lt;body&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;div class="container"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;!-- Header --&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;div style="text-align:center; margin-bottom:40px;"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;h1&gt;Meal Train for the [Family Name]&lt;/h1&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;p class="subtitle"&gt;5-day dinner schedule • One meal per day • Thank you for helping!&lt;/p&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;p class="date-note"&gt;March 16–20, 2026 (edit dates in code if needed)&lt;/p&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;!-- Schedule Table --&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;div class="card"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;h2&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>📅 Current Schedule</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;span class="live-badge"&gt;🔴 LIVE&lt;/span&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;/h2&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;div style="overflow-x:auto;"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;table id="scheduleTable"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>&lt;thead&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;tr&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">              </span>&lt;th&gt;Day&lt;/th&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">              </span>&lt;th&gt;Date&lt;/th&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">              </span>&lt;th&gt;Assigned To&lt;/th&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">              </span>&lt;th&gt;Meal They’re Bringing&lt;/th&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;/tr&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>&lt;/thead&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>&lt;tbody id="tableBody"&gt;&lt;/tbody&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;/table&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;!-- Signup Form --&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;div class="card"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;h2&gt;Sign Up to Bring Dinner&lt;/h2&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;p style="color:#a1a1aa; margin-bottom:24px;"&gt;Only available days shown. Changes appear instantly for everyone.&lt;/p&gt;</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">      </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;form id="mealForm"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;div style="margin-bottom:24px;"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>&lt;label&gt;Select Day (only open days)&lt;/label&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>&lt;select id="daySelect" required style="font-size:1.125rem;"&gt;&lt;/select&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;div class="grid-2"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>&lt;div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;label&gt;Your Name&lt;/label&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;input type="text" id="name" required placeholder="Jane Doe"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>&lt;div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;label&gt;Email (optional – for coordination)&lt;/label&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;input type="email" id="email" placeholder="you@email.com"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;div style="margin-top:24px;"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>&lt;label&gt;What kind of dinner will you bring?&lt;/label&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>&lt;input type="text" id="meal" required placeholder="e.g. Chicken enchiladas with rice &amp; beans, vegetarian lasagna..."&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>&lt;p style="font-size:0.75rem; color:#71717a; margin-top:6px;"&gt;Be specific so others can avoid duplicates!&lt;/p&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;button type="submit"&gt;✅ Claim This Day &amp; Submit Meal&lt;/button&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;/form&gt;</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;div id="successMessage" class="success-card" style="display:none;"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;div style="font-size:3rem; margin-bottom:12px;"&gt;🎉&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;h3 style="font-size:1.5rem; color:var(--emerald-400); font-weight:700;"&gt;Thank you so much!&lt;/h3&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;p style="color:#a1a1aa;"&gt;Your meal is now live on the schedule for everyone.&lt;/p&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;div class="footer"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;p&gt;🔴 Real-time Firebase sync • Changes appear instantly for all&lt;/p&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;p style="margin:8px 0;"&gt;Reset schedule (admin) → &lt;button onclick="resetSchedule()"&gt;click here&lt;/button&gt;&lt;/p&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;/div&gt;</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;script&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>// ====================== PASTE YOUR FIREBASE CONFIG HERE ======================</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>const firebaseConfig = {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>apiKey: "YOUR_API_KEY",</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>authDomain: "your-project.firebaseapp.com",</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>projectId: "your-project",</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>storageBucket: "your-project.appspot.com",</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>messagingSenderId: "123456789",</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>appId: "1:123456789:web:abcdef123456"</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>};</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>// =============================================================================</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>if (firebaseConfig.apiKey === "YOUR_API_KEY") {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>alert("⚠️ Please replace the firebaseConfig object at the top of the &lt;script&gt; with your own from Firebase console!");</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>firebase.initializeApp(firebaseConfig);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>const db = firebase.firestore();</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>const collectionRef = db.collection("mealDays");</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>// Default schedule (edit dates or days here if needed)</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>const defaultSlots = [</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>{ day: "Monday",<span class="Apple-converted-space">    </span>date: "March 16, 2026", assigned: "", meal: "" },</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>{ day: "Tuesday", <span class="Apple-converted-space">  </span>date: "March 17, 2026", assigned: "", meal: "" },</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>{ day: "Wednesday", date: "March 18, 2026", assigned: "", meal: "" },</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>{ day: "Thursday",<span class="Apple-converted-space">  </span>date: "March 19, 2026", assigned: "", meal: "" },</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>{ day: "Friday",<span class="Apple-converted-space">    </span>date: "March 20, 2026", assigned: "", meal: "" }</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>];</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>let schedule = [];</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>// Auto-seed if collection is empty</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>async function seedIfNeeded() {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>try {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>const snap = await collectionRef.get();</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>if (snap.empty) {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>const batch = db.batch();</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>defaultSlots.forEach(slot =&gt; {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>const docRef = collectionRef.doc(slot.day);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>batch.set(docRef, slot);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>});</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>await batch.commit();</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>console.log("✅ Initial schedule seeded in Firebase");</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>} catch (e) {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>console.error("Seed error:", e);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>// Real-time listener</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>function startRealtimeListener() {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>collectionRef.onSnapshot((snapshot) =&gt; {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>schedule = [];</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>snapshot.forEach(doc =&gt; {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>const data = doc.data();</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>schedule.push({ ...data, docId: doc.id });</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>});</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>// Keep fixed order</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>const dayOrder = ["Monday","Tuesday","Wednesday","Thursday","Friday"];</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>schedule.sort((a, b) =&gt; dayOrder.indexOf(a.day) - dayOrder.indexOf(b.day));</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>renderTable();</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>populateDaySelect();</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>});</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>function renderTable() {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>const tbody = document.getElementById('tableBody');</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>tbody.innerHTML = '';</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>schedule.forEach(slot =&gt; {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>const row = document.createElement('tr');</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>row.className = slot.assigned ? 'taken' : 'available';</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">        </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>row.innerHTML = `</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>&lt;td style="font-weight:600;"&gt;${slot.day}&lt;/td&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>&lt;td style="color:var(--zinc-400);"&gt;${slot.date}&lt;/td&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>&lt;td&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>${slot.assigned<span class="Apple-converted-space"> </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">              </span>? `&lt;span style="color:var(--emerald-400); font-weight:600;"&gt;${slot.assigned}&lt;/span&gt;`<span class="Apple-converted-space"> </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">              </span>: `&lt;span class="available-badge"&gt;✅ Available&lt;/span&gt;`}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>&lt;/td&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>&lt;td&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>${slot.meal<span class="Apple-converted-space"> </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">              </span>? `&lt;span class="meal-text"&gt;${slot.meal}&lt;/span&gt;`<span class="Apple-converted-space"> </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">              </span>: `&lt;span class="empty-meal"&gt;—&lt;/span&gt;`}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>&lt;/td&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>`;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>tbody.appendChild(row);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>});</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>function populateDaySelect() {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>const select = document.getElementById('daySelect');</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>select.innerHTML = '&lt;option value=""&gt;Choose an available day...&lt;/option&gt;';</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">      </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>let hasOpen = false;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>schedule.forEach((slot, index) =&gt; {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>if (!slot.assigned) {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>hasOpen = true;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>const option = document.createElement('option');</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>option.value = index;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>option.textContent = `${slot.day} (${slot.date})`;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>select.appendChild(option);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>});</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>if (!hasOpen) {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>const option = document.createElement('option');</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>option.textContent = "All days are already claimed ❤️";</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>select.appendChild(option);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>select.disabled = true;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>} else {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>select.disabled = false;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>// Form submit (with race-condition protection)</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>document.getElementById('mealForm').addEventListener('submit', async function(e) {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>e.preventDefault();</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">      </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>const dayIndex = parseInt(document.getElementById('daySelect').value);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>if (isNaN(dayIndex)) return;</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>const selectedSlot = schedule[dayIndex];</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>if (selectedSlot.assigned) {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>alert("Sorry, that day was just claimed by someone else!");</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>return;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>const name = document.getElementById('name').value.trim();</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>const email = document.getElementById('email').value.trim();</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>const meal = document.getElementById('meal').value.trim();</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>const docRef = collectionRef.doc(selectedSlot.docId || selectedSlot.day);</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>try {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>await docRef.update({</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>assigned: name + (email ? ` (${email})` : ''),</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>meal: meal</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>});</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>// Show success</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>document.getElementById('mealForm').style.display = 'none';</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>document.getElementById('successMessage').style.display = 'block';</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>setTimeout(() =&gt; {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>document.getElementById('mealForm').reset();</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>document.getElementById('mealForm').style.display = 'block';</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>document.getElementById('successMessage').style.display = 'none';</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}, 4000);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>} catch (err) {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>alert("Error saving: " + err.message);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>});</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>// Reset (for testing / new week)</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>window.resetSchedule = async function() {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>if (!confirm("Clear the entire schedule in Firebase? This cannot be undone.")) return;</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">      </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>try {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>const snap = await collectionRef.get();</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>const batch = db.batch();</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>snap.forEach(doc =&gt; batch.delete(doc.ref));</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>await batch.commit();</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>await seedIfNeeded(); // re-seed fresh dates</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>alert("Schedule cleared and reset!");</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>} catch (e) {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>alert("Error resetting: " + e.message);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>};</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>// Start everything</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>(async () =&gt; {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>await seedIfNeeded();</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>startRealtimeListener();</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>})();</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;/script&gt;</span></p>
+<p class="p1"><span class="s1">&lt;/body&gt;</span></p>
+<p class="p1"><span class="s1">&lt;/html&gt;</span></p>
+</body>
+</html>
